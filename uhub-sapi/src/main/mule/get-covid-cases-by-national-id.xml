@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<flow name="get-covid-cases-by-national-idFlow" doc:id="95296642-bc53-46c6-ba34-669b34c44142" >
+		<http:listener doc:name="Listener" doc:id="47a172c9-eca2-4f7b-ba75-b900cbf30784" config-ref="HTTP_Listener_config" path="v1/cases/{nationalId}" allowedMethods="GET"/>
+		<logger level="INFO" doc:name="Logger" doc:id="c6248ef6-c1ec-4444-bba1-d169d3d360af" message="#[attributes.uriParams.nationalId]"/>
+	</flow>
+</mule>
