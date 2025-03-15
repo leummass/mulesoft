@@ -10,5 +10,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="register-covid-caseFlow" doc:id="1e990ba9-5f55-4078-9f63-932612fa48d6" >
 		<http:listener doc:name="Listener" doc:id="ee09212e-42a0-4def-8e2d-6ef9256b36e2" config-ref="HTTP_Listener_config" path="v1/cases" allowedMethods="POST"/>
 		<logger level="INFO" doc:name="Logger" doc:id="b3db7449-bda2-4abd-a934-42e863f4e7b7" message="#[payload]"/>
+		<set-variable value="#[payload.firstName]" doc:name="Set Variable" doc:id="1b5ed8ee-4ced-44aa-9f65-456267dd74f1" variableName="userName"/>
+		<logger level="INFO" doc:name="Logger" doc:id="2dcac8c7-361d-48e2-94d7-3a902d1b7d35" message="#[vars.userName]"/>
 	</flow>
 </mule>
